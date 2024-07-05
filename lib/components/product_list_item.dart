@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_ecommerce_app/models/products.dart';
 import 'package:simple_ecommerce_app/providers/cart_provider.dart';
+import 'package:simple_ecommerce_app/util/constants/colors.dart';
 import 'package:simple_ecommerce_app/util/constants/sizes.dart';
 
 class ProductItem extends StatelessWidget {
@@ -11,6 +12,7 @@ class ProductItem extends StatelessWidget {
       {super.key, required this.product, required this.onAddToCart});
   @override
   Widget build(BuildContext context) {
+    final darkMode = Theme.of(context).brightness == Brightness.dark;
     final cartProvider = CartProvider.of(context);
 
     return SizedBox(
@@ -19,7 +21,7 @@ class ProductItem extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
         child: Card(
           elevation: 0.2,
-          color: Colors.white,
+          color: darkMode ? MyColors.colorDark : Colors.white,
           margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
           child: Row(
             children: [
